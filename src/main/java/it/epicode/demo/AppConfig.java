@@ -55,20 +55,20 @@ public class AppConfig {
         return t;
     }
     @Bean("pizza")
-    @Scope("prototype")
+    @Scope("singleton")
     public Pizze getPizzaMargherita (){
         Pizze p = new Pizze();
-        p.setNome("Pizza");
+        p.setNome("Pizza Margherita");
         p.setToppings(List.of(getPomodoro(),getMozzarella()));
         p.setCalories(400);
         p.setPrice(4.0);
         return p;
     }
     @Bean("pizzaHawaiana")
-    @Scope("prototype")
+    @Scope("singleton")
     public Pizze getPizzaHawaiana (){
         Pizze p = new Pizze();
-        p.setNome("Margherita");
+        p.setNome("Pizza Hawaiana");
         p.setToppings(List.of(getAnanas(),getPomodoro(),getMozzarella()));
         p.setCalories(400);
         p.setPrice(4.0 + getAnanas().getPrice());
@@ -112,7 +112,6 @@ public class AppConfig {
     @Scope("singleton")
     public ExtraProsciutto getPizzaExtraProsciutto(){
         ExtraProsciutto e = new ExtraProsciutto(getPizzaMargherita());
-
         return e;
     }
 
