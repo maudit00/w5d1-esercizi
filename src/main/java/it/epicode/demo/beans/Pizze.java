@@ -11,7 +11,7 @@ public class Pizze extends Meal {
   @Override
   public String toString() {
     return "Pizze{" + super.toString() +
-            "toppings=" + toppings +
+            "toppings :" + toppings.stream().map(el-> el.getNome()).toList()+
             '}';
   }
 }

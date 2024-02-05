@@ -12,7 +12,10 @@ public class ProvaApplication {
 		SpringApplication.run(ProvaApplication.class,args);
 		AnnotationConfigApplicationContext ctx = new AnnotationConfigApplicationContext(AppConfig.class);
 		Menu menu = ctx.getBean("menu", Menu.class);
-		System.out.println(menu);
+		System.out.println("------ MENU PIZZERIA ------");
+		menu.getDrinks().forEach(System.out::println);
+		menu.getPizze().forEach(System.out::println);
+		menu.getToppings().forEach(System.out::println);
 	}
 
 }

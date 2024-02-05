@@ -3,6 +3,7 @@ package it.epicode.demo.beans;
 import lombok.Data;
 
 @Data
-public class ExtraAdditionDecorator extends Pizze {
+public abstract class ExtraAdditionDecorator extends Pizze {
   protected Pizze pizza;
+  public abstract String getNome();
 }
