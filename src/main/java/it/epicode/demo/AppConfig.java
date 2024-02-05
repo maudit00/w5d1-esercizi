@@ -1,6 +1,7 @@
 package it.epicode.demo;
 
 import it.epicode.demo.beans.Drinks;
+import it.epicode.demo.beans.Menu;
 import it.epicode.demo.beans.Pizze;
 import it.epicode.demo.beans.Toppings;
 import org.springframework.context.annotation.Bean;
@@ -12,7 +13,7 @@ import java.util.List;
 @Configuration
 public class AppConfig {
     @Bean("prosciutto")
-    @Scope("prototype")
+    @Scope("singleton")
     public Toppings getProsciutto (){
         Toppings t = new Toppings();
         t.setNome("Prosciutto");
@@ -21,7 +22,7 @@ public class AppConfig {
         return t;
     }
     @Bean("mozzarella")
-    @Scope("prototype")
+    @Scope("singleton")
     public Toppings getMozzarella (){
         Toppings t = new Toppings();
         t.setNome("Mozzarella");
@@ -30,7 +31,7 @@ public class AppConfig {
         return t;
     }
     @Bean("pomodoro")
-    @Scope("prototype")
+    @Scope("singleton")
     public Toppings getPomodoro (){
         Toppings t = new Toppings();
         t.setNome("Pomodoro");
@@ -39,7 +40,7 @@ public class AppConfig {
         return t;
     }
     @Bean("ananas")
-    @Scope("prototype")
+    @Scope("singleton")
     public Toppings getAnanas (){
         Toppings t = new Toppings();
         t.setNome("Ananas");
@@ -59,7 +60,7 @@ public class AppConfig {
     }
 
     @Bean("acqua")
-    @Scope("prototype")
+    @Scope("singleton")
     public Drinks getAcqua(){
         Drinks d = new Drinks();
         d.setNome("Acqua");
@@ -70,7 +71,7 @@ public class AppConfig {
         return d;
     }
     @Bean("sprite")
-    @Scope("prototype")
+    @Scope("singleton")
     public Drinks getSprite(){
         Drinks d = new Drinks();
         d.setNome("Sprite");
@@ -79,5 +80,16 @@ public class AppConfig {
         d.setQuantity(0.33);
         d.setAlcohol(0);
         return d;
+    }
+
+    @Bean("menu")
+    @Scope("singleton")
+    public Menu getMenu(){
+        Menu m = new Menu();
+        m.setToppings(List.of(getProsciutto(),getPomodoro(),getMozzarella()));
+        m.setPizze(List.of(getPizzaMargherita()));
+        m.setDrinks(List.of(getAcqua(),getSprite()));
+        return m;
+
     }
 }
