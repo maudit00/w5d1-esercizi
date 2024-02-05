@@ -1,8 +1,11 @@
 package it.epicode.demo.beans;
 
 import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 
-@Data
+@Getter
+@Setter
 public class Drinks extends Meal{
     private double quantity;
 

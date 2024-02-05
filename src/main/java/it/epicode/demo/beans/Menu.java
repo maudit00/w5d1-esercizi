@@ -6,7 +6,8 @@ import java.util.List;
 
 @Data
 public class Menu {
-    List<Pizze> pizze;
-    List<Drinks> drinks;
-    List<Toppings> toppings;
+
+    private List<Pizze> pizze;
+    private List<Drinks> drinks;
+    private List<Toppings> toppings;
 }
